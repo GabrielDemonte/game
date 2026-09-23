@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="AstraMon: Origens - RPG clássico e original de captura de monstros e aventura em pixel art.">
+    <title>AstraMon: Origens - RPG Retrô</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="game-wrapper">
+        <!-- Moldura de Console Portátil Retrô -->
+        <main id="retro-console" role="main" aria-label="Console Portátil Retrô AstraMon">
+            <!-- Topo do Console com LED de Bateria e Marca -->
+            <header class="console-top">
+                <div class="brand-badge">
+                    <span class="brand-name">ASTRAPAL</span>
+                    <span class="brand-model">ADVANCE 16-BIT</span>
+                </div>
+                <div class="power-indicator" title="Status da Bateria">
+                    <span class="power-led" id="powerLed"></span>
+                    <span class="power-text">POWER</span>
+                </div>
+            </header>
+
+            <!-- Moldura e Tela Principal (Proporção 3:2, 480x320 nativa) -->
+            <div class="screen-bezel">
+                <div class="screen-header-info">
+                    <span class="screen-title">ASTRAMON • ORIGENS</span>
+                    <div class="quick-icons">
+                        <button id="btnSoundToggle" class="icon-btn" title="Alternar Som (Mudo / Ativado)">🔊</button>
+                        <button id="btnFullscreen" class="icon-btn" title="Tela Cheia">⛶</button>
+                    </div>
+                </div>
+
+                <div id="screen-container">
+                    <!-- Canvas do Jogo -->
+                    <canvas id="gameCanvas" width="480" height="320"></canvas>
+
+                    <!-- Scanline e reflexo retrô sutil -->
+                    <div class="crt-overlay"></div>
+
+                    <!-- Overlay de Notificações Rápidas -->
+                    <div id="notification-box" class="hidden"></div>
+
+                    <!-- Interface Flutuante / Menus Dinâmicos -->
+                    <div id="ui-overlay" class="hidden"></div>
+                </div>
+            </div>
+
+            <!-- Painel Inferior de Controles (D-pad e Botões de Ação) -->
+            <div class="console-controls">
+                <!-- D-Pad Direcional -->
+                <div class="dpad-container" aria-label="Controle Direcional">
+                    <button class="dpad-btn dpad-up" id="btnUp" aria-label="Mover para Cima">▲</button>
+                    <div class="dpad-middle">
+                        <button class="dpad-btn dpad-left" id="btnLeft" aria-label="Mover para Esquerda">◀</button>
+                        <div class="dpad-center"></div>
+                        <button class="dpad-btn dpad-right" id="btnRight" aria-label="Mover para Direita">▶</button>
+                    </div>
+                    <button class="dpad-btn dpad-down" id="btnDown" aria-label="Mover para Baixo">▼</button>
+                </div>
+
+                <!-- Botões Centrais (Select / Menu / Start) -->
+                <div class="center-buttons">
+                    <button class="pill-btn" id="btnMenu" title="Menu / Pausa [M]">
+                        <span class="pill-label">MENU</span>
+                    </button>
+                    <button class="pill-btn" id="btnSaveQuick" title="Salvar Rápido">
+                        <span class="pill-label">SALVAR</span>
+                    </button>
+                </div>
+
+                <!-- Botões de Ação (A e B) -->
+                <div class="action-buttons-container">
+                    <div class="btn-action-wrapper">
+                        <button class="round-btn btn-b" id="btnB" title="Botão B / Voltar / Correr [X]">
+                            <span>B</span>
+                        </button>
+                        <span class="key-hint">X / Esc</span>
+                    </div>
+                    <div class="btn-action-wrapper">
+                        <button class="round-btn btn-a" id="btnA" title="Botão A / Confirmar / Interagir [Z]">
+                            <span>A</span>
+                        </button>
+                        <span class="key-hint">Z / Enter</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rodapé com Alto-falantes Decorativos -->
+            <footer class="console-footer">
+                <div class="speaker-grill">
+                    <span></span><span></span><span></span><span></span><span></span><span></span>
+                </div>
+                <div class="controls-legend">
+                    <small>Teclado: <b>WASD / Setas</b> • Confirmar: <b>Z / Enter</b> • Voltar: <b>X</b> • Menu: <b>M</b></small>
+                </div>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Script Principal do Jogo -->
+    <script src="script.js"></script>
+</body>
+</html>
